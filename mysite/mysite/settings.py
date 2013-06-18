@@ -1,4 +1,5 @@
 # Django settings for mysite project.
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -8,6 +9,9 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
+
+PROJECT_PATH = os.path.abspath(os.path.dirname(__name__))
+get_path = lambda path: os.path.join(PROJECT_PATH, path) 
 
 DATABASES = {
     'default': {
@@ -111,6 +115,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    get_path('templates'),
 )
 
 INSTALLED_APPS = (
